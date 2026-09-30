@@ -1,0 +1,49 @@
+@TaskUserManagement_HostAddress = http://localhost:5054
+
+GET {{TaskUserManagement_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{TaskUserManagement_HostAddress}}/api/Users
+Content-Type: application/json
+
+{
+  "name": "Manu",
+  "email": "manu@example.com",
+  "passwordHash": "temporary1234"
+}
+
+###
+
+POST {{TaskUserManagement_HostAddress}}/api/Tasks
+Content-Type: application/json
+
+{
+  "title": "Learn Python",
+  "completed": false,
+  "userId": 2
+}
+###
+
+PUT {{TaskUserManagement_HostAddress}}/api/Tasks/1
+Content-Type: application/json
+
+{
+  "title": "Learn ASP.NET Core",
+  "completed": true,
+  "userId": 1
+}
+
+###
+GET {{TaskUserManagement_HostAddress}}/api/Users
+
+###
+POST {{TaskUserManagement_HostAddress}}/api/Tasks
+Content-Type: application/json
+
+{
+  "title": "Manage Core",
+  "completed": true,
+  "userId": 2
+}
